@@ -1,8 +1,7 @@
 # TrustPayRails
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/trust_pay_rails`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+A simple implementation of the [Trustpay](http://www.trustpay.eu/)
+payment platform to integrate into Rails apps.
 
 ## Installation
 
@@ -22,7 +21,57 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To configure the gem you can provide the following environment
+variables:
+
+``` bash
+TRUSTPAY_ENV - [testing|production|fake_bank_url] select an environment
+TRUSTPAY_KEY - your identifier received after registering with Trustpay
+TRUSTPAY_KEY - your key received after registering with TrustPay
+```
+
+You can also configure the gem with an initializer:
+
+``` ruby
+TrustPayRails.environment = (ENV['TRUSTPAY_ENV'] || :testing).to_sym
+TrustPayRails.aid = ENV['TRUSTPAY_AID']
+TrustPayRails.key = ENV['TRUSTPAY_KEY']
+```
+
+After configuring the gem you can create a TrustPay form using one of
+the provided view helpers.
+
+``` erb
+<%= trust_pay_form(amt: '123.45',
+                   cur: 'EUR',
+                   ref: '1234567890',
+                   rurl: trust_pay_return_url,
+                   curl: trust_pay_cancel_url,
+                   eurl: trust_pay_error_url,
+                   nurl: trust_pay_notification_url,
+                   dsc: 'a description no longer than 200 chars',
+                   lng: I18n.locale)
+%>
+
+
+<%= trust_pay_card_form(amt: '123.45',
+                        cur: 'EUR',
+                        ref: '1234567890',
+                        rurl: trust_pay_return_url,
+                        curl: trust_pay_cancel_url,
+                        eurl: trust_pay_error_url,
+                        nurl: trust_pay_notification_url,
+                        dsc: 'a description no longer than 200 chars',
+                        lng: I18n.locale)
+%>
+```
+
+To generate the TrustPay notification urls use the provided generator:
+
+``` bash
+rails g trust_pay_rails:routes
+```
+
 
 ## Development
 
