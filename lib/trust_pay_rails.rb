@@ -4,7 +4,9 @@ require "trust_pay_rails/signature"
 require 'trust_pay_rails/railtie' if defined?(Rails)
 
 module TrustPayRails
-  @environment = :testing
+  @environment = (ENV['TRUSTPAY_ENV'] || :testing).to_sym
+  @aid = ENV['TRUSTPAY_AID']
+  @key = ENV['TRUSTPAY_KEY']
   class << self
     attr_accessor :environment, :fake_bank_url, :fake_card_url, :aid, :key
   end
