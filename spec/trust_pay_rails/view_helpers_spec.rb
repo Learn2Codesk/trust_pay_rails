@@ -13,19 +13,19 @@ describe TrustPayRails::ViewHelpers do
   ActionView::Base.send :include, TrustPayRails::ViewHelpers
 
   before :each do
-    TrustPayRails::Signature.environment = :testing
-    TrustPayRails::Signature.key = 'abcd1234'
-    TrustPayRails::Signature.aid = "9876543210"
+    TrustPayRails.environment = :testing
+    TrustPayRails.key = 'abcd1234'
+    TrustPayRails.aid = "9876543210"
   end
 
   subject do
     ActionView::Base.new
- end
+  end
 
   it 'generates a signed form' do
     form = subject.trust_pay_form(amt: '123.45',
-                          cur: 'EUR',
-                          ref: '1234567890')
+                                  cur: 'EUR',
+                                  ref: '1234567890')
 
     expect(form).to match('action="https://test.trustpay.eu/mapi/pay.aspx"')
     expect(form).to match('method="post"')
@@ -39,8 +39,8 @@ describe TrustPayRails::ViewHelpers do
 
   it 'generates a signed card form' do
     form = subject.trust_pay_card_form(amt: '123.45',
-                               cur: 'EUR',
-                               ref: '1234567890')
+                                       cur: 'EUR',
+                                       ref: '1234567890')
 
     expect(form).to match('action="https://test.trustpay.eu/mapi/cardpayments.aspx"')
     expect(form).to match('method="post"')

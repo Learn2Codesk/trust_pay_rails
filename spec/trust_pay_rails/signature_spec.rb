@@ -2,7 +2,7 @@ require 'trust_pay_rails'
 
 describe TrustPayRails::Signature do
   before :each do
-    described_class.key = 'abcd1234'
+    TrustPayRails.key = 'abcd1234'
   end
 
   describe '#sign' do
