@@ -72,6 +72,8 @@ To generate the TrustPay notification urls use the provided generator:
 rails g trust_pay_rails:routes
 ```
 
+Now go and fill in the generated TrustPayRails controller with your
+custom application callback logic.
 
 ## Development
 
