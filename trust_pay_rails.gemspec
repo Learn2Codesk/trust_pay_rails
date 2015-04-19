@@ -9,9 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Michal Olah"]
   spec.email         = ["olahmichal@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "https://github.com/m1k3/trust_pay_rails"
+  spec.summary       = %q{A Ruby client to the TrustPay payment platform.}
+  spec.homepage      = "https://github.com/Learn2Codesk/trust_pay_rails"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
