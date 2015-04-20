@@ -1,4 +1,5 @@
-# TrustPayRails
+# TrustPayRails 
+[![Build Status](https://travis-ci.org/Learn2Codesk/trust_pay_rails.svg?branch=master)](https://travis-ci.org/Learn2Codesk/trust_pay_rails)
 
 A simple implementation of the [Trustpay](http://www.trustpay.eu/)
 payment platform to integrate into Rails apps.
