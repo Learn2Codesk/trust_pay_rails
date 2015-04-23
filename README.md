@@ -27,7 +27,7 @@ variables:
 
 ``` bash
 TRUSTPAY_ENV - [testing|production|fake_bank_url] select an environment
-TRUSTPAY_KEY - your identifier received after registering with Trustpay
+TRUSTPAY_AID - your identifier received after registering with Trustpay
 TRUSTPAY_KEY - your key received after registering with TrustPay
 ```
 
