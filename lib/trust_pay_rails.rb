@@ -14,7 +14,7 @@ module TrustPayRails
   def self.bank_transfer_url
     case @environment
     when :testing
-      'https://test.trustpay.eu/mapi/pay.aspx'
+      'https://ib.test.trustpay.eu/mapi/pay.aspx'
     when :production
       'https://ib.trustpay.eu/mapi/pay.aspx'
     when :fake
