@@ -27,7 +27,7 @@ describe TrustPayRails::ViewHelpers do
                                   cur: 'EUR',
                                   ref: '1234567890')
 
-    expect(form).to match('action="https://test.trustpay.eu/mapi/pay.aspx"')
+    expect(form).to match('action="https://ib.test.trustpay.eu/mapi/pay.aspx"')
     expect(form).to match('method="post"')
     expect(form).to match('<input type="hidden" name="aid" id="aid" value="9876543210" />')
     expect(form).to match('<input type="hidden" name="amt" id="amt" value="123.45" />')
